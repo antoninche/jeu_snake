@@ -26,7 +26,7 @@ Le serpent est animé de manière fluide, avec un corps rétrécissant progressi
 1. **Cloner le dépôt :**
 
 ```bash
-git clone https://github.com/TON_PSEUDO/snake-nsi.git
-cd snake-nsi
+git clone https://github.com/AntoCheMaestro/jeu_snake.git
+cd jeu_snake
 pip install pygame
 python snake.py
