@@ -1,6 +1,6 @@
-# jeu_snake — Snake style Google (Python + Pygame)
+# Jeu Snake (Python + Pygame)
 
-Un Snake **inspiré du Snake Google** : déplacement **en cases**, interface moderne, et surtout un code **simple et propre** (niveau Terminale NSI) pour pouvoir **complexifier** facilement le projet.
+Un Snake **inspiré du Snake Google** : déplacement **en cases**, interface moderne, et surtout un code **simple et propre** (niveau Terminale NSI).
 
 ## ✨ Fonctionnalités
 - Déplacement en cases (logique claire côté moteur).
@@ -13,9 +13,9 @@ Un Snake **inspiré du Snake Google** : déplacement **en cases**, interface mod
 - Vitesses : **lent / normal / rapide**
 - Highscore sauvegardé dans `highscore.txt`.
 
-## 🧱 Architecture (max 5 fichiers côté jeu)
+## 🧱 Architecture
 - `config.py` : réglages (fenêtre, grille, vitesses…)
-- `engine.py` : logique du jeu **sans Pygame**
+- `engine.py` : logique du jeu (sans Pygame)
 - `pygame_app.py` : affichage + inputs Pygame
 - `storage.py` : lecture/écriture highscore
 - `main.py` : lance le jeu
@@ -29,6 +29,6 @@ Un Snake **inspiré du Snake Google** : déplacement **en cases**, interface mod
 ```bash
 git clone https://github.com/antoninche/jeu_snake.git
 cd jeu_snake
+python -m pip install -r requirements.txt
 cd sources
-python -m pip install pygame
 python main.py
