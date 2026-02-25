@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Jeu Snake en Python + Pygame, inspiré du Snake Google. Code simple, propre et prêt à évoluer." />
+  <title>jeu_snake — Snake style Google (Python + Pygame)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body id="top">
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top">
+        <span class="brand__dot"></span>
+        <span class="brand__name">jeu_snake</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#controls">Contrôles</a>
+        <a href="#screens">Captures</a>
+        <a href="#install">Installation</a>
+      </nav>
+
+      <div class="topbar__cta">
+        <a class="btn btn--ghost" href="https://github.com/antoninche/jeu_snake" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn btn--primary" href="#install">Jouer</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="badge">Python • Pygame • Style Google</p>
+          <h1>Un Snake moderne, en cases, <span class="accent">propre</span> et <span class="accent">évolutif</span>.</h1>
+          <p class="lead">
+            Reproduction du <strong>Snake Google</strong> : grille, déplacement en cases, interface moderne,
+            et architecture claire (niveau Terminale NSI) pour ajouter facilement des modes et des features.
+          </p>
+
+          <div class="hero__buttons">
+            <a class="btn btn--primary" href="#install">Lancer le jeu</a>
+            <a class="btn btn--ghost" href="#controls">Voir les contrôles</a>
+          </div>
+
+          <ul class="hero__stats">
+            <li><span class="stat__num">5</span><span class="stat__label">fichiers max côté jeu</span></li>
+            <li><span class="stat__num">NSI</span><span class="stat__label">lisible et commenté</span></li>
+            <li><span class="stat__num">UI</span><span class="stat__label">moderne et clean</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__card">
+          <div class="card">
+            <div class="card__header">
+              <div class="pill">Snake • Aperçu</div>
+              <div class="dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="card__preview" aria-label="Prévisualisation style Google">
+              <div class="grid"></div>
+
+              <div class="chip">
+                <span class="chip__k">Score</span><span class="chip__v">12</span>
+                <span class="chip__sep">•</span>
+                <span class="chip__k">High</span><span class="chip__v">40</span>
+              </div>
+
+              <div class="snake">
+                <span class="snake__seg snake__seg--head"></span>
+                <span class="snake__seg"></span>
+                <span class="snake__seg"></span>
+                <span class="snake__seg"></span>
+              </div>
+
+              <div class="apple" title="Pomme"></div>
+              <div class="apple__leaf"></div>
+              <div class="apple__shine"></div>
+            </div>
+
+            <div class="card__footer">
+              <span>Déplacement</span>
+              <strong>en cases</strong>
+              <span class="sep">|</span>
+              <span>Interface</span>
+              <strong>moderne</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Fonctionnalités</h2>
+          <p>Le cœur est simple, mais la base est solide pour évoluer.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="feature">
+            <h3>Style Google</h3>
+            <p>Grille verte, UI moderne sombre, pomme lisible, snake arrondi.</p>
+          </article>
+
+          <article class="feature">
+            <h3>Déplacement en cases</h3>
+            <p>Logique claire côté moteur, rendu fluide côté Pygame.</p>
+          </article>
+
+          <article class="feature">
+            <h3>Modes inspirés Google</h3>
+            <p>Sans murs (wrap), portails, obstacles, vitesses (lent/normal/rapide).</p>
+          </article>
+
+          <article class="feature">
+            <h3>Highscore</h3>
+            <p>Lecture/écriture dans <code>highscore.txt</code> via <code>storage.py</code>.</p>
+          </article>
+
+          <article class="feature">
+            <h3>Architecture propre</h3>
+            <p>Moteur sans Pygame, interface séparée, config centralisée.</p>
+          </article>
+
+          <article class="feature">
+            <h3>Facile à complexifier</h3>
+            <p>Ajouts futurs : skins, missions, power-ups, niveaux, etc.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROLS -->
+    <section id="controls" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>Contrôles</h2>
+          <p>Simple comme le Snake Google.</p>
+        </div>
+
+        <div class="controls">
+          <div class="controls__box">
+            <h3>Menu</h3>
+            <ul>
+              <li><kbd>Espace</kbd> Jouer</li>
+              <li><kbd>1</kbd> Lent • <kbd>2</kbd> Normal • <kbd>3</kbd> Rapide</li>
+              <li><kbd>W</kbd> Sans murs (wrap)</li>
+              <li><kbd>T</kbd> Portails</li>
+              <li><kbd>O</kbd> Obstacles</li>
+              <li><kbd>Échap</kbd> Quitter</li>
+            </ul>
+          </div>
+
+          <div class="controls__box">
+            <h3>En jeu</h3>
+            <ul>
+              <li><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> Déplacer</li>
+              <li><kbd>P</kbd> Pause</li>
+              <li><kbd>Échap</kbd> Quitter</li>
+            </ul>
+          </div>
+
+          <div class="controls__box">
+            <h3>Game Over</h3>
+            <ul>
+              <li><kbd>R</kbd> Rejouer</li>
+              <li><kbd>M</kbd> Menu</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS (2 seulement) -->
+    <section id="screens" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Captures</h2>
+          <p>Ajoute tes 2 screenshots dans <code>docs/assets/</code> avec les noms ci-dessous.</p>
+        </div>
+
+        <div class="screens screens--two">
+          <figure class="shot">
+            <img src="assets/screen-menu.png" alt="Menu du jeu" />
+            <figcaption>Menu moderne</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="assets/screen-gameover.png" alt="Écran Game Over" />
+            <figcaption>Game Over</figcaption>
+          </figure>
+        </div>
+
+        <p class="note">
+          Noms attendus : <code>screen-menu.png</code> et <code>screen-gameover.png</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- INSTALL -->
+    <section id="install" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>Installation & Lancement</h2>
+          <p>Rapide et standard.</p>
+        </div>
+
+        <div class="install">
+          <div class="install__box">
+            <h3>Prérequis</h3>
+            <ul>
+              <li>Python 3.10+ (3.11 recommandé)</li>
+              <li>Pygame</li>
+            </ul>
+          </div>
+
+          <div class="install__box">
+            <h3>Commandes</h3>
+            <pre><code>git clone https://github.com/antoninche/jeu_snake.git
+cd jeu_snake
+python -m pip install -r requirements.txt
+python main.py</code></pre>
+            <p class="note">Si tu n’as pas de <code>requirements.txt</code> : <code>pip install pygame</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Roadmap</h2>
+          <p>Idées d’évolution (sans casser la lisibilité).</p>
+        </div>
+
+        <div class="grid2">
+          <div class="road">
+            <h3>Prochaines étapes</h3>
+            <ul>
+              <li>Skins / thèmes (palette + snake + pomme)</li>
+              <li>HUD intelligent (s’affiche après une pomme puis disparaît)</li>
+              <li>Niveaux d’obstacles (patterns simples)</li>
+              <li>Power-ups (slow/speed/ghost)</li>
+            </ul>
+          </div>
+
+          <div class="road">
+            <h3>Qualité</h3>
+            <ul>
+              <li>Commentaires NSI + noms FR</li>
+              <li>Architecture : moteur indépendant de Pygame</li>
+              <li>Max 5 fichiers côté jeu</li>
+              <li>Lisibilité > “astuces”</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-cta">
+          <a class="btn btn--primary" href="https://github.com/antoninche/jeu_snake" target="_blank" rel="noreferrer">Voir le repo</a>
+          <a class="btn btn--ghost" href="#top">Retour en haut</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 — jeu_snake • Python + Pygame</p>
+      <p class="footer__small">Inspiré du Snake Google (projet éducatif).</p>
+    </div>
+  </footer>
+</body>
+</html>
