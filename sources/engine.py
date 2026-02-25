@@ -25,11 +25,15 @@ class MoteurSnake:
         self.highscore_a_sauver = False  # True quand on dépasse le highscore
 
         # Timing : accumulateur pour faire des ticks réguliers
+        # + durée d'un tick (utile pour l'animation fluide côté affichage)
         self.accumulateur = 0.0
+        self.duree_tick = 0.1
 
-        # Données de jeu (seront initialisées dans reset_partie)
+        # Données de jeu
         self.serpent = []
+        self.serpent_precedent = []  # IMPORTANT : sert à l'interpolation (animation fluide)
         self.longueur_voulue = 0
+
         self.direction = (1, 0)         # (dx, dy) : commence vers la droite
         self.direction_voulue = None    # direction demandée au clavier, appliquée au tick suivant
 
@@ -110,6 +114,22 @@ class MoteurSnake:
             return self.cfg.tps_rapide
         return self.cfg.tps_normal
 
+    def progression_tick(self):
+        """
+        Renvoie un nombre entre 0 et 1.
+        - 0  : on est juste après un tick (début du mouvement vers la prochaine case)
+        - 1  : on est juste avant le tick suivant
+        Sert à dessiner un déplacement fluide dans pygame_app.py
+        """
+        if self.duree_tick <= 0:
+            return 0.0
+        t = self.accumulateur / self.duree_tick
+        if t < 0.0:
+            return 0.0
+        if t > 1.0:
+            return 1.0
+        return t
+
     def update(self, dt):
         # dt en secondes
         if self.etat != "jeu":
@@ -119,11 +139,13 @@ class MoteurSnake:
         if dt > 0.25:
             dt = 0.25
 
+        # On met à jour la durée d'un tick selon la vitesse
+        self.duree_tick = 1.0 / float(self.tps_actuel())
+
         self.accumulateur += dt
 
-        dt_tick = 1.0 / float(self.tps_actuel())
-        while self.accumulateur >= dt_tick and self.etat == "jeu":
-            self.accumulateur -= dt_tick
+        while self.accumulateur >= self.duree_tick and self.etat == "jeu":
+            self.accumulateur -= self.duree_tick
             self.tick()
 
     # =============================
@@ -139,6 +161,9 @@ class MoteurSnake:
         for i in range(self.cfg.longueur_initiale):
             self.serpent.append((cx - i, cy))
 
+        # Au départ, précédent = actuel (sinon l'animation ferait un "glitch")
+        self.serpent_precedent = list(self.serpent)
+
         self.longueur_voulue = self.cfg.longueur_initiale
         self.direction = (1, 0)
         self.direction_voulue = None
@@ -146,6 +171,7 @@ class MoteurSnake:
         self.score = 0
         self.highscore_a_sauver = False
         self.accumulateur = 0.0
+        self.duree_tick = 1.0 / float(self.tps_actuel())
 
         # Obstacles
         self.obstacles = set()
@@ -162,6 +188,10 @@ class MoteurSnake:
         self.pomme = self.choisir_case_libre()
 
     def tick(self):
+        # IMPORTANT : on mémorise l'état du serpent AVANT de bouger,
+        # pour pouvoir interpoler (animation fluide) côté affichage.
+        self.serpent_precedent = list(self.serpent)
+
         # 1) Appliquer direction demandée (si existante)
         if self.direction_voulue is not None:
             self.direction = self.direction_voulue
@@ -207,7 +237,6 @@ class MoteurSnake:
                 self.serpent.pop()
 
         # 8) Collision avec soi-même
-        # Important : on vérifie après avoir éventuellement retiré la queue.
         tete = self.serpent[0]
         corps = self.serpent[1:]
         if tete in corps:
@@ -299,17 +328,16 @@ class MoteurSnake:
                 places += 1
 
     def generer_portails(self):
-        # Deux cases libres distinctes
+        # Deux cases libres distinctes (on fait simple et robuste)
         a = self.choisir_case_libre()
-        # Pour la seconde, on "réserve" a temporairement en la considérant occupée
-        # (le plus simple : boucle jusqu'à trouver différent)
+        self.portail_a = a  # on fixe a pour éviter de retomber dessus
+
         b = self.choisir_case_libre()
         tentatives = 0
-        while b == a and tentatives < 50:
+        while b == a and tentatives < 80:
             b = self.choisir_case_libre()
             tentatives += 1
 
-        self.portail_a = a
         self.portail_b = b
 
     def teleporter_si_portail(self, case):
