@@ -90,15 +90,6 @@ Objectifs :
 
 * * *
 
-##  Captures (2)
-
-> Place les fichiers ici : `docs/assets/`
-
-![Menu](docs/assets/screen-menu.png)
-![Game Over](docs/assets/screen-gameover.png)
-
-* * *
-
 ##  Installation
 
 Prérequis :
@@ -109,3 +100,5 @@ Installation :
 git clone https://github.com/antoninche/jeu_snake.git
 cd jeu_snake
 python -m pip install -r requirements.txt
+cd sources
+python main.py
