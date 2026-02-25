@@ -1,32 +1,34 @@
-# Snake NSI – Projet Python / Pygame
+# jeu_snake — Snake style Google (Python + Pygame)
 
-## Description
-Ce projet est une implémentation du jeu Snake en Python à l'aide de la bibliothèque Pygame, réalisée dans le cadre du programme de Terminale NSI.  
-Le jeu s’inspire du Snake de Google et comprend plusieurs améliorations graphiques et fonctionnelles.
+Un Snake **inspiré du Snake Google** : déplacement **en cases**, interface moderne, et surtout un code **simple et propre** (niveau Terminale NSI) pour pouvoir **complexifier** facilement le projet.
 
-Le serpent est animé de manière fluide, avec un corps rétrécissant progressivement et des pommes représentées avec un dégradé de couleur.
+## ✨ Fonctionnalités
+- Déplacement en cases (logique claire côté moteur).
+- Rendu moderne (grille verte “Google”, snake arrondi, pomme lisible).
+- Menu complet avant de jouer (pas de jeu derrière).
+- Modes :
+  - **Sans murs** (wrap)
+  - **Portails**
+  - **Obstacles**
+- Vitesses : **lent / normal / rapide**
+- Highscore sauvegardé dans `highscore.txt`.
 
----
+## 🧱 Architecture (max 5 fichiers côté jeu)
+- `config.py` : réglages (fenêtre, grille, vitesses…)
+- `engine.py` : logique du jeu **sans Pygame**
+- `pygame_app.py` : affichage + inputs Pygame
+- `storage.py` : lecture/écriture highscore
+- `main.py` : lance le jeu
 
-## Fonctionnalités
+## ▶️ Installation
+### Prérequis
+- Python 3.10+ (3.11 recommandé)
+- Pygame
 
-- Menu principal avec affichage du score le plus élevé (high score)
-- Possibilité de mettre le jeu en pause
-- Serpent fluide avec tête et corps arrondi progressif
-- Pommes avec dégradé de couleur
-- Stockage du high score dans un fichier texte pour persistance
-- Grille de fond rappelant le style du Snake de Google
-- Yeux directionnels suivant le mouvement du serpent
-- Fonctionnalités futures possibles : ajout de sons, augmentation progressive de la vitesse, mode multijoueur
-
----
-
-## Installation
-
-1. **Cloner le dépôt :**
-
+### Lancer
 ```bash
-git clone https://github.com/AntoCheMaestro/jeu_snake.git
+git clone https://github.com/antoninche/jeu_snake.git
 cd jeu_snake
-pip install pygame
-python snake.py
+cd sources
+python -m pip install pygame
+python main.py
