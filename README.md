@@ -1,104 +1,106 @@
-#  Snake — Projet Personnel 
-## Recréation du Snake Google en Python (Pygame), avec animation fluide et architecture propre
+# 🐍 Snake — Projet Personnel
+## Recréation du Snake Google en Python (Pygame) avec animation fluide et architecture propre
 
-* * *
+---
 
-##  Présentation
+## 📌 Présentation
 
-Ce dépôt contient un **jeu Snake** développé en **Python** avec une interface graphique en **Pygame**, inspiré du **Snake Google**.
+Ce dépôt contient un **jeu Snake** développé en **Python**, avec une interface graphique réalisée en **Pygame**, inspiré du **Snake Google**.
 
-Points clés :
-- Déplacement **en cases** (logique simple, stable)
-- Rendu **moderne** (grille verte style Google + UI sobre)
-- **Animation fluide** (interpolation entre deux états de grille)
-- Projet volontairement **petit** : **5 fichiers maximum** côté jeu
+Le projet ne se limite pas à “faire un Snake” :  
+il vise aussi une **architecture claire** (niveau Terminale NSI) pour pouvoir **complexifier** facilement ensuite.
 
-* * *
+Il intègre :
 
-##  Gameplay (règles)
+- 🎮 Une interface moderne (menu + HUD discret)
+- 🧱 Un moteur de jeu **indépendant** de l’interface (testable, propre)
+- 🌀 Une **animation fluide** (interpolation entre deux états en cases)
+- ⚙️ Des modes inspirés du Snake Google (wrap / portails / obstacles)
+- 🏆 Un highscore persistant (stocké dans un dossier utilisateur)
 
+---
+
+## 🎮 Règles du jeu
+
+- Le serpent se déplace sur une **grille en cases**.
 - Le joueur dirige le serpent avec les flèches.
-- Le but est de **manger des pommes** pour grandir et augmenter le score.
-- La partie se termine en cas de collision (selon les options activées).
+- Le but est de **manger des pommes** pour grandir et gagner des points.
+- La partie se termine si le serpent :
+  - se mord (collision avec lui-même)
+  - touche un obstacle (si activé)
+  - touche un mur (si “sans murs” désactivé)
 
-* * *
+---
 
-##  Fonctionnalités principales
+## 🚀 Fonctionnalités principales
 
-###  Gameplay
-- Déplacement en cases (comme Snake Google)
-- Score + Highscore (persistant dans `highscore.txt`)
-- Pause en jeu
+### 🎮 Gameplay
+- Déplacement en cases (stable, simple, fidèle à l’esprit “Google Snake”)
+- Score et highscore
+- Pause
+- Game Over avec relance rapide
 
-###  Options (menu)
+### ⚙️ Options (menu)
 - **Sans murs (wrap)** : le serpent réapparaît de l’autre côté
-- **Portails** : téléportation entre deux cases
+- **Portails** : téléportation entre 2 cases
 - **Obstacles** : cases bloquantes
 - Vitesses : **lent / normal / rapide**
 
-
-* * *
-
-##  Animation fluide (important)
-
-Le jeu est logique **en cases**, mais l’affichage est **fluide** :
-- Le moteur conserve l’état **avant** le tick (`serpent_precedent`)
-- Le moteur conserve l’état **après** le tick (`serpent`)
-- L’interface Pygame **interpole** entre les deux pour obtenir un mouvement doux
+### 🎨 Rendu moderne
+- Grille verte “Google”
+- Snake arrondi, pomme lisible
+- HUD compact (ne gêne pas le plateau)
+- Menu sur une vraie page (le jeu n’apparaît pas derrière)
 
 
-* * *
+## 🏆 Highscore (cross-platform)
 
-##  Architecture du projet
+Le highscore est :
+
+- une **variable Python** pendant la partie
+- sauvegardé dans un fichier **dans un dossier utilisateur** 
+
+Ce choix permet :
+- ✅ compatibilité macOS `.app`
+- ✅ compatibilité Windows `.exe`
+
+---
+
+## 🧩 Architecture du projet
 
 Séparation claire des responsabilités :
-- `engine.py` → **moteur du jeu** (règles, déplacements, collisions, score) **sans Pygame**
-- `pygame_app.py` → **interface graphique** (affichage, menu, inputs, animations)
-- `config.py` → configuration (fenêtre, grille, vitesses…)
-- `storage.py` → lecture/écriture du highscore
+
+- `engine.py` → **moteur du jeu** (règles, collisions, score, génération) **sans Pygame**
+- `pygame_app.py` → **interface graphique** (menu, affichage, inputs, overlays)
+- `config.py` → réglages (taille grille, fps, vitesses…)
+- `storage.py` → lecture/écriture du highscore (dossier utilisateur)
 - `main.py` → point d’entrée
 
-Objectifs :
-- Tester/faire évoluer le moteur sans dépendre de l’interface
-- Garder un code lisible et modifiable rapidement
+Cette organisation permet :
+- un moteur testable indépendamment
+- une maintenance plus simple
+- une évolution facile (modes, power-ups, niveaux…)
 
-* * *
+---
 
-##  Structure du projet
+## 📂 Structure du projet
 
-    jeu_snake/
-    │
-    └── sources/
-        ├── main.py
-        ├── config.py
-        ├── engine.py
-        ├── pygame_app.py
-        ├── storage.py
-        ├── requirements.txt
-        ├── highscore.txt
-    │
-    └── docs/
-        ├── index.html
-        ├── styles.css
-        └── assets/
-            ├── screen-menu.png
-            └── screen-gameover.png
-    ├── requirements.txt
-    ├── README.md
-    └──  LICENSE
-    
-
-* * *
-
-##  Installation
-
-Prérequis :
-- Python 3.10+ (3.11 recommandé)
-
-Installation :
-```bash
-git clone https://github.com/antoninche/jeu_snake.git
-cd jeu_snake
-python -m pip install -r requirements.txt
-cd sources
-python main.py
+```text
+jeu_snake/
+│
+├── requirements.txt
+├── README.md
+│
+├── sources/
+│   ├── main.py
+│   ├── config.py
+│   ├── engine.py
+│   ├── pygame_app.py
+│   └── storage.py
+│
+└── docs/
+    ├── index.html
+    ├── styles.css
+    └── assets/
+        ├── screen-menu.png
+        └── screen-gameover.png
