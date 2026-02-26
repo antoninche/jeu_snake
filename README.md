@@ -104,3 +104,29 @@ jeu_snake/
     └── assets/
         ├── screen-menu.png
         └── screen-gameover.png
+```
+---
+
+## 📦 Lancer le jeu via la Release (sans installer Python)
+
+Pour les utilisateurs qui ne veulent pas installer Python, le jeu est disponible en version packagée dans l’onglet **Releases** du dépôt GitHub.
+
+### 🍎 macOS (.app)
+1. Va dans **Releases** (sur GitHub, à droite du dépôt)
+2. Télécharge le fichier : `SnakeGoogle-vX.X.X-macos.zip`
+3. Dézippe → tu obtiens `SnakeGoogle.app`
+4. Lance le jeu :
+   - Double-clic sur l’app  
+   - ou si macOS bloque : clic droit → **Ouvrir** → **Ouvrir**
+
+⚠️ Si macOS affiche un blocage de sécurité (“développeur non identifié”), c’est normal pour une app non signée.
+
+### 🪟 Windows (.exe) *(si disponible)*
+1. Va dans **Releases**
+2. Télécharge : `SnakeGoogle-vX.X.X-windows.zip`
+3. Dézippe → `SnakeGoogle.exe`
+4. Double-clique pour lancer
+
+⚠️ Windows Defender peut afficher un avertissement sur un `.exe` non signé : choisir “Informations complémentaires” puis “Exécuter quand même” si tu fais confiance à la source (ce dépôt).
+
+---
