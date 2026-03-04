@@ -8,14 +8,15 @@
 Ce dépôt contient un **jeu Snake** développé en **Python**, avec une interface graphique réalisée en **Pygame**, inspiré du **Snake Google**.
 
 Le projet ne se limite pas à “faire un Snake” :  
-il vise aussi une **architecture claire** (niveau Terminale NSI) pour pouvoir **complexifier** facilement ensuite.
+il vise aussi une **architecture claire et professionnelle** pour pouvoir **complexifier** facilement ensuite.
 
 Il intègre :
 
 - 🎮 Une interface moderne (menu + HUD discret)
 - 🧱 Un moteur de jeu **indépendant** de l’interface (testable, propre)
 - 🌀 Une **animation fluide** (interpolation entre deux états en cases)
-- ⚙️ Des modes inspirés du Snake Google (wrap / portails / obstacles)
+- ⚙️ Des modes avancés (wrap / portails / obstacles)
+- 🚀 Un système de **Combos x2**, des **Niveaux évolutifs** et un **Décompte immersif**
 - 🏆 Un highscore persistant (stocké dans un dossier utilisateur)
 
 ---
@@ -34,17 +35,19 @@ Il intègre :
 
 ## 🚀 Fonctionnalités principales
 
-### 🎮 Gameplay
+### 🎮 Gameplay Immersif
 - Déplacement en cases (stable, simple, fidèle à l’esprit “Google Snake”)
-- Score et highscore
-- Pause
-- Game Over avec relance rapide
+- **Système de Niveaux** : Le jeu s'accélère et rajoute des obstacles tous les 5 pommes
+- **Combos x2** : Manger deux pommes très rapidement double les points !
+- **Compte à rebours** audiovisuel avant chaque partie
+- Score, highscore persistant, et pause
 
 ### ⚙️ Options (menu)
 - **Sans murs (wrap)** : le serpent réapparaît de l’autre côté
 - **Portails** : téléportation entre 2 cases
 - **Obstacles** : cases bloquantes
-- Vitesses : **lent / normal / rapide**
+- Vitesses initiales : **lent / normal / rapide**
+- **Option MUTE (M)** : Couper globalement les sons
 
 ### 🎨 Rendu moderne
 - Grille verte “Google”
@@ -77,9 +80,9 @@ Séparation claire des responsabilités :
 - `main.py` → point d’entrée
 
 Cette organisation permet :
-- un moteur testable indépendamment
-- une maintenance plus simple
-- une évolution facile (modes, power-ups, niveaux…)
+- un moteur proprement structuré et découplé de l'interface graphique (Pygame)
+- un code 100% traduit en français pour une accessibilité maximale
+- une maintenance plus simple et une évolution facile (modes, power-ups, niveaux…)
 
 ---
 
