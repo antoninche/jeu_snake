@@ -1,44 +1,64 @@
 # config.py
-# Réglages du jeu.
-# Objectif : rendre le plateau, le texte et les éléments plus grands
-# sans changer la taille de la fenêtre.
 
 class Config:
+    """Configuration centralisée du jeu Snake."""
+
     def __init__(self):
-        # ===== Fenêtre (inchangée) =====
+        # Paramètres de la fenêtre
         self.largeur_ecran = 800
         self.hauteur_ecran = 600
 
-        # ===== Grille =====
-        # On agrandit la taille des cases => plateau visuellement plus grand (éléments plus gros)
-        # 40 divise 800 et 600 (important !)
-        self.taille_case = 40  # pixels par case
+        # Taille de la grille
+        self.taille_case = 40
 
-        if self.largeur_ecran % self.taille_case != 0 or self.hauteur_ecran % self.taille_case != 0:
-            raise ValueError("largeur_ecran et hauteur_ecran doivent être multiples de taille_case.")
+        if self.largeur_ecran % self.taille_case != 0:
+            raise ValueError("largeur_ecran doit être un multiple de taille_case.")
+        if self.hauteur_ecran % self.taille_case != 0:
+            raise ValueError("hauteur_ecran doit être un multiple de taille_case.")
 
         self.largeur_grille = self.largeur_ecran // self.taille_case
         self.hauteur_grille = self.hauteur_ecran // self.taille_case
 
-        # ===== Snake =====
+        # Serpent
         self.longueur_initiale = 5
         self.croissance_par_pomme = 1
 
-        # ===== Options par défaut =====
+        # Options de départ configurables
         self.sans_murs_defaut = False
-        self.portails_defaut = False
+        self.portails_defaut  = False
         self.obstacles_defaut = False
 
-        # ===== Vitesses =====
-        self.tps_lent = 8.0
+        # Vitesses de jeu (ticks par seconde)
+        self.tps_lent   = 8.0
         self.tps_normal = 10.0
         self.tps_rapide = 13.0
 
-        # ===== Obstacles =====
+        # Vitesse progressive
+        self.tps_acceleration = 0.15
+        self.tps_max          = 25.0
+
+        # Expérience de jeu (Niveaux / Obstacles)
+        self.pommes_par_niveau  = 5
+        self.obstacles_par_lvl  = 3
+        self.duree_message_lvl  = 2.0
+
+        # Multiplicateur de score (Combo x2)
+        self.delai_multi  = 3.0
+        self.score_multi  = 2
+
+        # Décompte
+        self.duree_compte_a_rebours = 3.0
+
+        # Environnement initial
         self.nombre_obstacles = 18
 
-        # ===== UI =====
+        # Événements en jeu (Pomme bonus)
+        self.duree_pomme_bonus  = 7.0
+        self.score_pomme_bonus  = 3
+        self.proba_pomme_bonus  = 0.25
+
+        # Rendu technique
         self.fps_affichage = 60
 
-        # ===== Stockage =====
-        self.fichier_highscore = "highscore.txt"
+        # Données utilisateur
+        self.fichier_meilleur_score = "meilleur_score.txt"
