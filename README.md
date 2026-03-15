@@ -65,7 +65,7 @@ Le highscore est :
 
 Ce choix permet :
 - ✅ compatibilité macOS `.app`
-- ✅ compatibilité Windows `.exe`
+- ✅ compatibilité Windows `.exe` 
 
 ---
 
