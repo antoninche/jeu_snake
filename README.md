@@ -3,7 +3,7 @@
 
 ---
 
-## 📌 Présentation
+## Présentation
 
 Ce dépôt contient un **jeu Snake** développé en **Python**, avec une interface graphique réalisée en **Pygame**, inspiré du **Snake Google**.
 
@@ -12,16 +12,16 @@ il vise aussi une **architecture claire et professionnelle** pour pouvoir **comp
 
 Il intègre :
 
-- 🎮 Une interface moderne (menu + HUD discret)
-- 🧱 Un moteur de jeu **indépendant** de l’interface (testable, propre)
-- 🌀 Une **animation fluide** (interpolation entre deux états en cases)
-- ⚙️ Des modes avancés (wrap / portails / obstacles)
-- 🚀 Un système de **Combos x2**, des **Niveaux évolutifs** et un **Décompte immersif**
-- 🏆 Un highscore persistant (stocké dans un dossier utilisateur)
+- Une interface moderne (menu + HUD discret)
+- Un moteur de jeu **indépendant** de l’interface (testable, propre)
+- Une **animation fluide** (interpolation entre deux états en cases)
+- Des modes avancés (wrap / portails / obstacles)
+- Un système de **Combos x2**, des **Niveaux évolutifs** et un **Décompte immersif**
+- Un highscore persistant (stocké dans un dossier utilisateur)
 
 ---
 
-## 🎮 Règles du jeu
+## Règles du jeu
 
 - Le serpent se déplace sur une **grille en cases**.
 - Le joueur dirige le serpent avec les flèches.
@@ -33,30 +33,30 @@ Il intègre :
 
 ---
 
-## 🚀 Fonctionnalités principales
+## Fonctionnalités principales
 
-### 🎮 Gameplay Immersif
+### Gameplay Immersif
 - Déplacement en cases (stable, simple, fidèle à l’esprit “Google Snake”)
 - **Système de Niveaux** : Le jeu s'accélère et rajoute des obstacles tous les 5 pommes
 - **Combos x2** : Manger deux pommes très rapidement double les points !
 - **Compte à rebours** audiovisuel avant chaque partie
 - Score, highscore persistant, et pause
 
-### ⚙️ Options (menu)
+### Options (menu)
 - **Sans murs (wrap)** : le serpent réapparaît de l’autre côté
 - **Portails** : téléportation entre 2 cases
 - **Obstacles** : cases bloquantes
 - Vitesses initiales : **lent / normal / rapide**
 - **Option MUTE (M)** : Couper globalement les sons
 
-### 🎨 Rendu moderne
+### Rendu moderne
 - Grille verte “Google”
 - Snake arrondi, pomme lisible
 - HUD compact (ne gêne pas le plateau)
 - Menu sur une vraie page (le jeu n’apparaît pas derrière)
 
 
-## 🏆 Highscore (cross-platform)
+## Highscore (cross-platform)
 
 Le highscore est :
 
@@ -64,12 +64,12 @@ Le highscore est :
 - sauvegardé dans un fichier **dans un dossier utilisateur** 
 
 Ce choix permet :
-- ✅ compatibilité macOS `.app`
-- ✅ compatibilité Windows `.exe` 
+- compatibilité macOS `.app`
+- compatibilité Windows `.exe` 
 
 ---
 
-## 🧩 Architecture du projet
+## Architecture du projet
 
 Séparation claire des responsabilités :
 
@@ -86,7 +86,7 @@ Cette organisation permet :
 
 ---
 
-## 📂 Structure du projet
+## Structure du projet
 
 ```text
 jeu_snake/
@@ -110,11 +110,11 @@ jeu_snake/
 ```
 ---
 
-## 📦 Lancer le jeu via la Release (sans installer Python)
+## Lancer le jeu via la Release (sans installer Python)
 
 Pour les utilisateurs qui ne veulent pas installer Python, le jeu est disponible en version packagée dans l’onglet **Releases** du dépôt GitHub.
 
-### 🍎 macOS (.app)
+### macOS (.app)
 1. Va dans **Releases** (sur GitHub, à droite du dépôt)
 2. Télécharge le fichier : `SnakeGoogle-vX.X.X-macos.zip`
 3. Dézippe → tu obtiens `SnakeGoogle.app`
@@ -122,14 +122,14 @@ Pour les utilisateurs qui ne veulent pas installer Python, le jeu est disponible
    - Double-clic sur l’app  
    - ou si macOS bloque : clic droit → **Ouvrir** → **Ouvrir**
 
-⚠️ Si macOS affiche un blocage de sécurité (“développeur non identifié”), c’est normal pour une app non signée.
+ Si macOS affiche un blocage de sécurité (“développeur non identifié”), c’est normal pour une app non signée.
 
-### 🪟 Windows (.exe) *(si disponible)*
+###  Windows (.exe) 
 1. Va dans **Releases**
 2. Télécharge : `SnakeGoogle-vX.X.X-windows.zip`
 3. Dézippe → `SnakeGoogle.exe`
 4. Double-clique pour lancer
 
-⚠️ Windows Defender peut afficher un avertissement sur un `.exe` non signé : choisir “Informations complémentaires” puis “Exécuter quand même” si tu fais confiance à la source (ce dépôt).
+Windows Defender peut afficher un avertissement sur un `.exe` non signé : choisir “Informations complémentaires” puis “Exécuter quand même” si tu fais confiance à la source (ce dépôt).
 
 ---
