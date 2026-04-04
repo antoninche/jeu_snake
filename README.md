@@ -11,7 +11,7 @@ Le projet ne se limite pas à “faire un Snake” :
 il vise aussi une **architecture claire et professionnelle** pour pouvoir **complexifier** facilement ensuite.
 
 Il intègre :
-
+ 
 - Une interface moderne (menu + HUD discret)
 - Un moteur de jeu **indépendant** de l’interface (testable, propre)
 - Une **animation fluide** (interpolation entre deux états en cases)
