@@ -1,7 +1,7 @@
 # engine.py
 import random
 import math
-
+ 
 class Etat:
     """États possibles du jeu."""
     MENU              = "menu"
