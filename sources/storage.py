@@ -4,7 +4,7 @@ import sys
 
 NOM_APP              = "SnakeGoogle"
 NOM_FICHIER_PAR_DEF  = "meilleur_score.txt"
- 
+  
 def dossier_donnees_utilisateur(nom_app=NOM_APP):
     """
     Renvoie le chemin du dossier où stocker les données du jeu.
