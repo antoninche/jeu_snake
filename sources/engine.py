@@ -9,7 +9,7 @@ class Etat:
     JEU               = "jeu"
     PAUSE             = "pause"
     PERDU             = "perdu"
-
+ 
 class TypeEvenement:
     """Types d'événements publiés par le moteur."""
     POMME_MANGEE     = "pomme_mangee"
