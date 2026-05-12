@@ -1,7 +1,7 @@
 # pygame_app.py
 # Interface Pygame : affichage, clavier, sons et particules.
 #
-
+ 
 import time    # pour mesurer le temps réel (horloges, animations)
 import math    # pour les fonctions sin(), cos(), etc.
 import random  # pour la dispersion des particules
