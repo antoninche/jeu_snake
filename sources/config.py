@@ -1,5 +1,5 @@
 # config.py 
-
+ 
 class Config:
     """Configuration centralisée du jeu Snake."""
  
