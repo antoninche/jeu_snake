@@ -10,7 +10,7 @@ def dossier_donnees_utilisateur(nom_app=NOM_APP):
     Renvoie le chemin du dossier où stocker les données du jeu.
     Le dossier est dans l'espace utilisateur (toujours accessible en écriture).
     """
-    if sys.platform.startswith("win"):
+    if sys.platform.startswith("win"): 
         # Windows : %APPDATA%
         base = os.environ.get("APPDATA") or os.environ.get("LOCALAPPDATA") or os.path.expanduser("~")
         return os.path.join(base, nom_app)
