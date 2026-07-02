@@ -11,7 +11,7 @@ def dossier_donnees_utilisateur(nom_app=NOM_APP):
     Le dossier est dans l'espace utilisateur (toujours accessible en écriture).
     """
     if sys.platform.startswith("win"): 
-        # Windows : %APPDATA%
+        # Windows : %APPDATA% 
         base = os.environ.get("APPDATA") or os.environ.get("LOCALAPPDATA") or os.path.expanduser("~")
         return os.path.join(base, nom_app)
 
