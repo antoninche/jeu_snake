@@ -8,7 +8,7 @@ class Config:
         self.largeur_ecran = 800
         self.hauteur_ecran = 600
 
-        # Taille de la grille
+        # Taille de la grille 
         self.taille_case = 40
 
         if self.largeur_ecran % self.taille_case != 0:
