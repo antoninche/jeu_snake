@@ -2,7 +2,7 @@
 ## Recréation du Snake Google en Python avec animation fluide et architecture propre
 
 ---
- 
+  
 ## Présentation 
  
 Ce dépôt contient un **jeu Snake** développé en **Python**, avec une interface graphique réalisée en **Pygame**, inspiré du **Snake Google**.
