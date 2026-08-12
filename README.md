@@ -1,6 +1,6 @@
 # 🐍 Snake — Projet Personnel
 ## Recréation du Snake Google en Python avec animation fluide et architecture propre
-
+ 
 ---
   
 ## Présentation 
