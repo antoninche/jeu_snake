@@ -4,7 +4,7 @@ class Config:
     """Configuration centralisée du jeu Snake."""
  
     def __init__(self): 
-        # Paramètres de la fenêtre
+        # Paramètres de la fenêtre 
         self.largeur_ecran = 800
         self.hauteur_ecran = 600
 
