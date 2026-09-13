@@ -33,7 +33,7 @@ class Config:
         self.tps_normal = 10.0
         self.tps_rapide = 13.0
 
-        # Vitesse progressive
+        # Vitesse progressive 
         self.tps_acceleration = 0.15
         self.tps_max          = 25.0
 
