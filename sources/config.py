@@ -1,6 +1,6 @@
 # config.py 
  
-class Config:
+class Config: 
     """Configuration centralisée du jeu Snake."""
  
     def __init__(self): 
