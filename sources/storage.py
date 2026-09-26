@@ -1,7 +1,6 @@
 # storage.py
 import os
 import sys
-
 NOM_APP              = "SnakeGoogle"
 NOM_FICHIER_PAR_DEF  = "meilleur_score.txt"
   
