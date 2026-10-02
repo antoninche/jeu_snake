@@ -47,4 +47,4 @@ Une version Windows prête à l'emploi (`SnakeGoogle.exe`) est disponible dans
 les [Releases](https://github.com/antoninche/jeu_snake/releases). Windows
 Defender affiche un avertissement : l'exécutable n'est pas signé.
 
-![Game over](docs/assets/screen-gameover.png)
+![Game over](docs/assets/screen-gameover.png) 
