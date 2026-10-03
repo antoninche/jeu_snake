@@ -9,7 +9,7 @@ class Config:
 
         # Taille de la grille 
         self.taille_case = 40
-
+ 
         if self.largeur_ecran % self.taille_case != 0:
             raise ValueError("largeur_ecran doit être un multiple de taille_case.")
         if self.hauteur_ecran % self.taille_case != 0:
