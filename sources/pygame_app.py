@@ -3,7 +3,6 @@
 import time    # pour mesurer le temps réel (horloges, animations)
 import math    # pour les fonctions sin(), cos(), etc.
 import random  # pour la dispersion des particules
- 
 import pygame  # bibliothèque graphique 
  
 # Import des éléments du moteur
