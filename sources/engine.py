@@ -20,7 +20,7 @@ class TypeEvenement:
     NIVEAU_MONTE     = "niveau_monte"
     COMPTE_DEBUT     = "compte_debut"
     COMBO_ACTIF      = "combo_actif"
-
+ 
 class BusEvenements:
     """Bus d'événements (Observer pattern) pour découpler le moteur de l'affichage."""
     def __init__(self):
