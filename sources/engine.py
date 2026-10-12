@@ -2,7 +2,7 @@
 import random
 import math
 
-class Etat:
+class Etat: 
     """États possibles du jeu."""
     MENU              = "menu"
     COMPTE_A_REBOURS  = "compte_a_rebours"
